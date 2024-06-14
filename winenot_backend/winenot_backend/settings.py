@@ -31,7 +31,7 @@ DEBUG = False
 ALLOWED_HOSTS = ['localhost', 'api.winenot.com', 'wine-not.netlify.app', 'django-app-4ubj.onrender.com']
 
 #Url for the frontend during deployment
-WEBSITE_URL = 'wine-not.netlify.app'
+WEBSITE_URL = 'http://wine-not.netlify.app'
 
 # #Url for the frontend during development
 # WEBSITE_URL = 'http://localhost:5173'
