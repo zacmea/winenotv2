@@ -72,4 +72,21 @@ def remove_wine_from_collexn(request, collpk, winepk):
         # serializer = CollexnSerializer(collexn)
     return JsonResponse('success', safe=False)
         
+@api_view(['PUT'])
+def add_wines_to_collexn(request, collpk):
+    try:
+        collexn = Collexn.objects.get(id=collpk)
+    except Collexn.DoesNotExist:
+        return JsonResponse({'error': 'Collection not found'}, status=404)
     
+    wine_ids = []
+    for wine_data in request.data.get('wines', []):
+        new_wine = Wine.objects.create(**wine_data)
+        new_wine.save()
+        wine_ids.append(new_wine.id)
+    
+    collexn.wines.add(*wine_ids)
+    collexn.save()
+    
+    serializer = CollexnSerializer(collexn)
+    return JsonResponse(serializer.data, safe=False)

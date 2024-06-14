@@ -1,6 +1,50 @@
 <template>
     <div v-if="collexn">
-        <h1>{{ collexn.name }}</h1>
+        <h1 class="text-3xl text-center">{{ collexn.name }}</h1>
+        <hr class="border-t-2 border-blue-200 my-3"/>
+        <form @submit.prevent="submitForm" method="post">
+            <h3 class="font-extralight text-right mt-1">Add a wine to this collection:</h3>
+            <div v-for="(wine, index) in form.wines" :key="index" class="wine-form">
+                <input type="text" v-model="wine.name" placeholder="Wine name" />
+                <input type="text" v-model="wine.link" placeholder="Wine link" />
+                <input type="text" v-model="wine.thumb" placeholder="Wine thumb" />
+                <input type="text" v-model="wine.country" placeholder="Wine country" />
+                <input type="text" v-model="wine.region" placeholder="Wine region" />
+                <input
+                    type="number"
+                    v-model.number="wine.average_rating"
+                    step="0.01"
+                    placeholder="Wine average rating"
+                />
+                <input
+                    type="number"
+                    v-model.number="wine.number_of_ratings"
+                    placeholder="Number of ratings"
+                />
+                <input
+                    type="number"
+                    v-model.number="wine.price"
+                    step="0.01"
+                    placeholder="Wine price"
+                />
+                <button type="button" @click="removeWine(index)">Cancel</button>
+                <br />
+                <br />
+            </div>
+            <div class="flex justify-end">
+                <button
+                    type="button"
+                    @click="addWine"
+                    class="border 2 border-blue-200 bg-blue-100 rounded-xl px-3 font-semibold text-sm"
+                >
+                    +
+                </button>
+            </div>
+            <div class="font-semibold flex justify-center ">
+            <button class="border-2 border-blue-300 rounded-xl bg-blue-200 px-2 text-lg" type="submit">Update collection</button>
+            </div>
+        </form>
+        <hr class="border-t-2 border-blue-200 my-3"/>
         <h2>Wines in this collection:</h2>
         <ul>
             <li v-for="wine in collexn.wines" :key="wine.id">
@@ -33,6 +77,10 @@ export default {
     props: ["id"],
     data() {
         return {
+            form: {
+                name: "",
+                wines: [],
+            },
             collexn: null,
         };
     },
@@ -44,6 +92,30 @@ export default {
             try {
                 const response = await axios.get(`/api/collexns/${this.id}`);
                 this.collexn = response.data;
+            } catch (error) {
+                console.error(error);
+            }
+        },
+
+        addWine() {
+            this.form.wines.push({
+                name: "",
+                link: "",
+                thumb: "",
+                country: "",
+                region: "",
+                average_rating: "",
+                number_of_ratings: "",
+                price: "",
+            });
+        },
+
+        async submitForm() {
+            try {
+                const response = await axios.put(`/api/collexns/${this.id}/add_wines/`, { wines: this.form.wines });
+                // this.collexn.wines.push(...response.data.wines);
+                this.collexn = response.data;
+                this.form.wines = [];
             } catch (error) {
                 console.error(error);
             }
