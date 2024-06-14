@@ -19,7 +19,7 @@
 3) CD into root directory & run 'source winenot_backend/venv/bin/activate' to start virtual environment.
 4) With venv running, CD into winenot_backend and run 'pip install requirements.txt' to install back-end dependencies.
 5) Create a PSQL database
-6) Open 'winenot_backend/winenot_backend/settings.py and adjust the WEBSITE_URL and the DATABASE connection information to match your instance (eg: 'http://localhost:5173').
+6) Open 'winenot_backend/winenot_backend/settings.py and adjust the WEBSITE_URL and the DATABASE connection information to match your setup (eg: 'http://localhost:5173').
 
 ## User Stories
 - As a wine lover, I can find new wines to try by searching or browsing
@@ -48,7 +48,7 @@ I then began work on the authentication and login/signup views, and from there b
 6) Images for wines are not currently utilized.  Upcoming.
 
 
-### External Resources, References, & Supports
+## External Resources, References, & Supports
 1) Word choice - https://m3.material.io/foundations/content-design/style-guide/word-choice
 2) First vs 2nd person - https://ux.stackexchange.com/questions/4348/your-vs-my-in-user-interfaces
 3) Vue tutorial/lesson - https://www.codecademy.com/learn/learn-vue-js
