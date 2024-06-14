@@ -57,3 +57,19 @@ def collexn_delete(request, pk):
         return JsonResponse({'message': 'Collection deleted successfully'}, status=204)
     except Collexn.DoesNotExist:
         return JsonResponse({'error': 'Collection not found'}, status=404)
+
+@api_view(['PUT'])
+def remove_wine_from_collexn(request, collpk, winepk):
+    try:
+        collexn = Collexn.objects.get(id=collpk)
+    except Collexn.DoesNotExist:
+        return JsonResponse({'error': 'Collection not found'}, status=404)
+        # collexn = Collexn.objects.get(pk=pk)
+    foundwine = Wine.objects.get(id=winepk)
+    # collexn.wines.filter(foundwine).delete()
+    collexn.wines.remove(foundwine)
+    collexn.save()
+        # serializer = CollexnSerializer(collexn)
+    return JsonResponse('success', safe=False)
+        
+    

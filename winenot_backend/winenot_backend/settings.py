@@ -127,7 +127,7 @@ TEMPLATES = [
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
-# For running fully in production:
+#For running fully in production:
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
