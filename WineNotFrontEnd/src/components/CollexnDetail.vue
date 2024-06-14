@@ -45,21 +45,20 @@
             </div>
         </form>
         <hr class="border-t-2 border-blue-200 my-3"/>
-        <h2>Wines in this collection:</h2>
+        <h2 class="pb-5 font-semibold">Wines in this collection:</h2>
         <ul>
-            <li v-for="wine in collexn.wines" :key="wine.id">
+            <li v-for="wine in collexn.wines" :key="wine.id" class="flex py-3 items-center">
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke-width="1.5"
                     stroke="currentColor"
-                    class="w-6 h-6 cursor-pointer mr-2"
+                    class="w-6 h-6 cursor-pointer mr-2 -mb-1 bg-red-100 rounded-xl border border-red-300"
                     @click="removeWine(wine.id)"
                 >
                     <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
                 </svg>
-
                 {{ wine.name }} - ${{ wine.price }}
             </li>
         </ul>
