@@ -16,9 +16,12 @@
             </div>
         </template>
         <template v-else>
-           <div class="mb-10 pt-5">
-            <h1>Welcome!</h1>
-            <h2>Wanna talk about wines?  Wine not!</h2>
+           <div class="mb-10 pt-5 flex flex-col items-center ">
+            <h1 class="text-2xl text-center">Welcome, wine not log in and start the fun!</h1>
+            <div class="flex flex-col items-center space-y-12 py-14">
+                <RouterLink to="/login" class="py-4 px-6 bg-green-600 text-white rounded-lg text-center text-5xl font-thin">Log in</RouterLink>
+                <RouterLink to="/signup" class="py-4 px-6 bg-blue-600 text-white rounded-lg text-center text-5xl font-thin ">Sign up</RouterLink>
+            </div>
             </div>
             <!-- <div>
                 <RouterLink to="/login" class="mr-4 py-4 px-6 bg-green-600 text-white rounded-lg">Log in</RouterLink>
