@@ -1,22 +1,19 @@
-databases:
-  - name: winenot
-    plan: starter
-    databaseName: winenotdb_ts40
-    user: winenotuser
-
+# This is a basic example Blueprint for a Django web service and
+# the PostgreSQL database it connects to.
 services:
-  - type: web
-    plan: free
-    name: mysite
+  - type: web # A Python web service named django-app running on a free instance
+    plan: starter
+    name: winenotapp
     runtime: python
-    buildCommand: "./build.sh"
-    startCommand: "python -m gunicorn winenot_backend.asgi:application -k uvicorn.workers.UvicornWorker"
+    repo: https://github.com/zacmea/winenotv2
+    buildCommand: "cd winenot_backend && ./build.sh"
+    startCommand: "cd winenot_backend && python -m gunicorn winenot_backend.asgi:application -k uvicorn.workers.UvicornWorker"
     envVars:
-      - key: DATABASE_URL
+      - key: DATABASE_URL # Sets DATABASE_URL to the connection string of the django-app-db database
         fromDatabase:
-          name: winenot
+          name: winenotapp-db
           property: connectionString
-      - key: SECRET_KEY
-        generateValue: true
-      - key: WEB_CONCURRENCY
-        value: 4
+
+databases:
+  - name: winenotapp-db # A PostgreSQL database named django-app-db running on a free instance
+    plan: starter
