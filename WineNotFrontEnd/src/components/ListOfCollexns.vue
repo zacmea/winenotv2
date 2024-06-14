@@ -38,9 +38,9 @@
                 <button
                     type="button"
                     @click="addWine"
-                    class="border 2 border-blue-200 italic rounded-xl px-3 font-extralight text-sm"
+                    class="border 2 border-blue-200 bg-blue-100 rounded-xl px-3 font-semibold text-sm"
                 >
-                    Add Wine
+                    +
                 </button>
             </div>
             <div class="font-semibold flex justify-center ">
