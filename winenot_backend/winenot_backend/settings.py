@@ -34,7 +34,7 @@ ALLOWED_HOSTS = ['localhost', 'api.winenot.com', 'wine-not.netlify.app', 'django
 # WEBSITE_URL = 'https://wine-wine-not.netlify.app/'
 
 #Url for the frontend during development
-WEBSITE_URL = 'http://localhost:5174'
+WEBSITE_URL = 'https://winenotapp.onrender.com'
 
 
 # Application definition
@@ -127,27 +127,27 @@ TEMPLATES = [
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
-# #For running fully in production:
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         **dj_database_url.config(
-#             default='postgres://winenotapp_db_user:xe5SY4PGjw7tWDLHrC86WTmo5DnVjVqc@dpg-cpm67maju9rs738l7akg-a/winenotapp_db',
-#             conn_max_age=600
-#         )
-#     }
-# }
-
-#For running locally but using the production database:
+#For running fully in production:
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         **dj_database_url.config(
-            default='postgres://winenotapp_db_user:xe5SY4PGjw7tWDLHrC86WTmo5DnVjVqc@dpg-cpm67maju9rs738l7akg-a.oregon-postgres.render.com/winenotapp_db',
+            default='postgres://winenotapp_db_user:xe5SY4PGjw7tWDLHrC86WTmo5DnVjVqc@dpg-cpm67maju9rs738l7akg-a/winenotapp_db',
             conn_max_age=600
         )
     }
 }
+
+#For running locally but using the production database:
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         **dj_database_url.config(
+#             default='postgres://winenotapp_db_user:xe5SY4PGjw7tWDLHrC86WTmo5DnVjVqc@dpg-cpm67maju9rs738l7akg-a.oregon-postgres.render.com/winenotapp_db',
+#             conn_max_age=600
+#         )
+#     }
+# }
 
 # For running locally:  (Make sure to create a database called 'winenot' and have it running)
 # DATABASES = {
