@@ -107,7 +107,7 @@ export default {
                     .then(response => {
                         if (response.data.message === 'success') {
                             alert('The user is now registered. Please log in')
-
+                            this.$router.push({ name: 'login' })
                             this.form.first_name = ''
                             this.form.last_name = ''
                             this.form.email = ''

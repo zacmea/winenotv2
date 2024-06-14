@@ -4,7 +4,7 @@
     <h2>Wines in this collection:</h2>
     <ul>
       <li v-for="wine in collexn.wines" :key="wine.id">
-        {{ wine.name }} - {{ wine.price }}
+        {{ wine.name }} - ${{ wine.price }}
       </li>
     </ul>
   </div>

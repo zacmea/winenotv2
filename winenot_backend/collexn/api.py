@@ -6,7 +6,7 @@ from .forms import CollexnForm
 
 @api_view(['GET'])
 def collexn_list(request):
-    collexns = Collexn.objects.all()
+    collexns = Collexn.objects.filter(created_by=request.user)
     serializer = CollexnSerializer(collexns, many=True)
     return JsonResponse(serializer.data, safe=False)  # 'safe=False' allows for serialization of objects that are not dict-like
 

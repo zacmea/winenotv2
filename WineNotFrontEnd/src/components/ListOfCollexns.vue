@@ -6,7 +6,7 @@
         <form @submit.prevent="submitForm" method="post">
             <input class="pl-2 mt-1 rounded-lg" type="text" v-model="form.name" placeholder="Name of collection" />
 
-            <h3 class="font-extralight text-right mt-1">Wines in collection:</h3>
+            <h3 class="font-extralight text-right mt-1">Add a wine to this collection:</h3>
             <div v-for="(wine, index) in form.wines" :key="index" class="wine-form">
                 <input type="text" v-model="wine.name" placeholder="Wine name" />
                 <input type="text" v-model="wine.link" placeholder="Wine link" />
@@ -30,7 +30,7 @@
                     step="0.01"
                     placeholder="Wine price"
                 />
-                <button type="button" @click="removeWine(index)">Remove</button>
+                <button type="button" @click="removeWine(index)">Cancel</button>
                 <br />
                 <br />
             </div>
@@ -44,7 +44,7 @@
                 </button>
             </div>
             <div class="font-semibold flex justify-center ">
-            <button class="border-2 border-blue-300 rounded-xl bg-blue-200 px-2 text-lg" type="submit">Submit</button>
+            <button class="border-2 border-blue-300 rounded-xl bg-blue-200 px-2 text-lg" type="submit">Save collection</button>
             </div>
         </form>
         <hr class="border-t-2 border-blue-200 my-3"/>
