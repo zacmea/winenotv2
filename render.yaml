@@ -5,7 +5,7 @@ services:
     plan: starter
     name: winenot-app
     runtime: python
-    repo: https://github.com/zacmea/WineNot
+    repo: https://github.com/zacmea/winenotv2
     buildCommand: "cd winenot_backend && ./build.sh"
     startCommand: "cd winenot_backend && python -m gunicorn winenot_backend.asgi:application -k uvicorn.workers.UvicornWorker"
     envVars:
