@@ -112,7 +112,7 @@
     </nav>
 <template v-if="!userStore.user.isAuthenticated">
     <div class="justify-center align-middle">
-        <h1 class="text-center text-lg">Welcome! Please <RouterLink to="/login">log in</RouterLink> or <RouterLink to="/signup">sign up</RouterLink> to continue.</h1>
+        <h1 class="text-center text-lg">Welcome! Please <RouterLink to="/login" class="underline">log in</RouterLink> or <RouterLink to="/signup" class="underline">sign up</RouterLink> to continue.</h1>
     </div>
 </template>
     <main class="px-8 py-6 bg-gray-100">

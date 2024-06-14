@@ -28,13 +28,13 @@ SECRET_KEY = 'django-insecure-=y5@_ddwbn74c4sh#7nccp5z0unn+1zjkmsx3(1y=&hq2@&0r)
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['localhost', 'api.winenot.com', 'wine-not.netlify.app', 'django-app-4ubj.onrender.com']
+ALLOWED_HOSTS = ['localhost', 'api.winenot.com', 'wine-not.netlify.app', 'django-app-4ubj.onrender.com', 'winenotapp.onrender.com']
 
 #Url for the frontend during deployment
-WEBSITE_URL = 'http://wine-not.netlify.app'
+WEBSITE_URL = 'https://wine-wine-not.netlify.app/'
 
 # #Url for the frontend during development
-# WEBSITE_URL = 'http://localhost:5173'
+# WEBSITE_URL = 'http://localhost:5174'
 
 
 # Application definition
@@ -64,6 +64,7 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:8000",
     "http://localhost:8080",
     "http://localhost:5173",
+    "http://localhost:5174",
     "http://localhost:10000",
 ]
 
@@ -73,6 +74,7 @@ CSRF_TRUSTED_ORIGINS = [
     "http://localhost:8000",
     "http://localhost:10000",
     "http://localhost:5173",
+    "http://localhost:5174",
     ]
 
 #HEY DEVS: Comment out the django.contrib.saticfiles line to run the app locally.
@@ -125,12 +127,12 @@ TEMPLATES = [
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
-#For running fully in production:
+# #For running fully in production:
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         **dj_database_url.config(
-            default='postgres://django_app_db_p0lm_user:mFUdWdpT4kXyMh833Qi8hhtVm0lrJTQl@dpg-cpkaglq0si5c73cngoog-a/django_app_db_p0lm',
+            default='postgres://winenotapp_db_user:xe5SY4PGjw7tWDLHrC86WTmo5DnVjVqc@dpg-cpm67maju9rs738l7akg-a/winenotapp_db',
             conn_max_age=600
         )
     }
@@ -141,7 +143,7 @@ DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.postgresql',
 #         **dj_database_url.config(
-#             default='postgres://django_app_db_p0lm_user:mFUdWdpT4kXyMh833Qi8hhtVm0lrJTQl@dpg-cpkaglq0si5c73cngoog-a.oregon-postgres.render.com/django_app_db_p0lm',
+#             default='postgres://winenotapp_db_user:xe5SY4PGjw7tWDLHrC86WTmo5DnVjVqc@dpg-cpm67maju9rs738l7akg-a.oregon-postgres.render.com/winenotapp_db',
 #             conn_max_age=600
 #         )
 #     }
